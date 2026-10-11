@@ -1,5 +1,5 @@
 Ref,Part,Qty,Footprint,Notes
-U1,Seeed XIAO ESP32-C3,1,Imported Parts:XIAO-ESP32-C6-DIP,USB-C faces the bottom edge
+U1,Seeed XIAO ESP32-C3,1,Imported Parts:XIAO-ESP32-C3-DIP,USB-C faces the bottom edge
 J1,0.96in SSD1306 OLED 128x64 I2C (GND-VDD-SCL-SDA pin order),1,Imported Parts:Display_128x64_096_I2C,Check your module's pin order matches GND VDD SCL SDA
 J2,GY-521 MPU6050 module,1,Imported Parts:MPU6050_Module,Powered from 3.3V
 U2,DHT11 bare 4-pin sensor,1,Sensor:Aosong_DHT11_5.5x12.0_P2.54mm,Not the 3-pin breakout board
