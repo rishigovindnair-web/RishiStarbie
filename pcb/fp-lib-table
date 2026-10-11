@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Imported Parts")(type "KiCad")(uri "${KIPRJMOD}/libs/Imported Parts.pretty")(options "")(descr "Starbie care package footprints (converted to KiCad 7 format)"))
+)
