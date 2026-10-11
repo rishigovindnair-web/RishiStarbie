@@ -1,0 +1,25 @@
+# KiCad temporary and per-user files
+*-backups/
+*.bak
+*.bck
+*.kicad_prl
+*.lck
+~*.lck
+_autosave-*
+fp-info-cache
+*-cache.lib
+*.kicad_sch-bak
+*.kicad_pcb-bak
+
+# Loose fabrication output (zip it into production/ instead)
+pcb/*.gbr
+pcb/*.g?l
+pcb/*.gt?
+pcb/*.gb?
+pcb/*.gm1
+pcb/*.drl
+pcb/*.gbrjob
+
+# OS junk
+.DS_Store
+Thumbs.db

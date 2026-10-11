@@ -1,58 +1,119 @@
 # RishiStarbie
-This Github Repo is a submission for Week 1 of Hackclub Halflife, where I decided to make a Starbie. A starbie is a desk pet built on a star-shaped circuit board, which has "emotions" like joy, energy, etc. You look after it through a menu where you can do things like feeding it. 
 
-What's included
+My Starbie for Week 1 of Hack Club Half-Life. A Starbie is a desk pet built on a star-shaped circuit board. It has "emotions" like joy and energy, and you look after it through a menu where you can do things like feed it.
 
-The board. The flat purple star that everything else attaches to. Thin lines of metal printed on it serve as wires, carrying electricity and data.
-The brain. Tiny computer about the size of a stamp. It runs the program that controls the pet and makes things appear on the screen.
-The screen. A small thin display in the middle of the star about the size of a thumbnail. This is where the pet lives.
-Two buttons. Small key-like buttons, one on each side arm.
-Motion sensor. Can detect orientation and shaking, like the motion sensor in your phone that tells which way it's pointing.
-Temperature sensor. A small sensor that detects how hot it is, and how much humidity there is in the room.
+## Repo layout
 
-How to play
+```
+RishiStarbie/
+├── pcb/                              KiCad project (open this)
+│   ├── RishiStarbie.kicad_pro
+│   ├── RishiStarbie.kicad_sch        schematic
+│   ├── RishiStarbie.kicad_pcb        board layout
+│   ├── fp-lib-table / sym-lib-table  point KiCad at libs/
+│   └── libs/
+│       ├── Imported Parts.pretty/    footprints: XIAO, OLED, MPU6050
+│       ├── Seeed_Studio_XIAO_Series.kicad_sym
+│       └── 3D Models/                see the README in there
+└── production/
+    ├── RishiStarbie_gerbers.zip      upload this to JLCPCB
+    └── BOM.csv
+```
 
-Plug into a phone charger or a USB-C port on a computer. It doesn't have a battery, so it only powers on while it's plugged in.
-The pet will begin walking side to side on the screen, trailing sparkly contrails.
-Press the left button and a menu with four options appears: nap, play, feed and dance. Instead of using arrow keys, you'll use the motion sensor. Tilt the star and a small ball will begin rolling towards your desired option like a marble on a tray. Press the left button again to select it.
-Each option affects the pet's happiness:
-Feeding it increases happiness and fullness.
-Taking a nap increases happiness and energy.
-Playing and dancing increase happiness, but decrease energy.
-Press the right button to access the status menu, where you can see how happy, energetic and full the pet is, and what the temperature is in the room.
-Shake the star to increase the pet's happiness. If the pet was sleeping, it'll wake up.
+## Editing in KiCad
 
-The pet will remember its status from the last session. If you power it off and on again, it'll remember how it was feeling before you turned it off.
+1. Install KiCad 7 or newer (the files are saved in KiCad 7 format, so 8 and 9 open them too).
+2. Clone or download this repo. Keep the folder structure as it is.
+3. Open `pcb/RishiStarbie.kicad_pro`. The schematic and PCB editors open from there.
 
-Everything is on the front of the star and is glued on with solder.
+The custom footprints and the XIAO symbol live in `pcb/libs/`, and the project's library tables point at them with `${KIPRJMOD}`, so they load on any computer without extra setup. Everything else (switches, DHT11, resistor, connectors) comes from KiCad's built-in libraries.
 
-How a part is attached
+If you change the board, re-export gerbers (File → Fabrication Outputs → Gerbers + Drill Files), zip them, and replace `production/RishiStarbie_gerbers.zip`.
 
-All parts have little legs of metal on them, and the board also has holes for each leg on the part, with a ring of metal around each hole. Push the legs of the part through the holes from the front so that the part rests on the front of the star (not on its side), then flip it over.
+## What's on the board
 
-On the back, touch the soldering iron to where the leg of the part and the ring of metal on the board meet, and add a little solder. Solder is a metal wire that melts easily, and when you melt some of it, it will pool around the leg and metal ring, and then harden in a couple seconds. This does two things:
+- **The board.** The flat purple star that everything else attaches to. Thin lines of metal printed on it serve as wires, carrying electricity and data.
+- **The brain.** A tiny computer (Seeed XIAO ESP32-C3) about the size of a stamp. It runs the program that controls the pet and draws on the screen.
+- **The screen.** A small 0.96" OLED in the middle of the star, about the size of a thumbnail. This is where the pet lives.
+- **Two buttons.** Small key-like buttons, one on each side arm.
+- **Motion sensor.** An MPU6050 that detects orientation and shaking, like the sensor in your phone that tells which way it's pointing.
+- **Temperature sensor.** A DHT11 that reads the temperature and humidity in the room.
 
-It physically holds the part in place, and
+## How to play
 
-it makes an electrical connection, so that electricity can flow from the part to the lines on the board.
+Plug it into a phone charger or a USB-C port on a computer. It doesn't have a battery, so it only runs while plugged in.
 
-After soldering a leg, you can cut off the excess part of the leg on the back of the star.
+The pet walks side to side on the screen, trailing sparkly contrails.
 
-The three mini boards
+Press the left button and a menu with four options appears: nap, play, feed and dance. Instead of arrow keys you use the motion sensor. Tilt the star and a small ball rolls toward the option you want, like a marble on a tray. Press the left button again to select it.
 
-The brain, the screen, and the motion sensor each come as their own mini board, so each needs one extra step. They probably come with a little strip of metal pins on the side, which you have to solder onto the mini board first, making it have legs to solder in the star. Then solder those legs into the star like normal.
+Each option affects the pet:
 
-Where everything goes
+- Feeding increases happiness and fullness.
+- Napping increases happiness and energy.
+- Playing and dancing increase happiness but use up energy.
 
-On top: temperature sensor and the little resistor next to it, in the middle: the screen, on the left and right points: a button each, on the bottom left: the motion sensor, on the bottom right: the brain, whose USB-C port juts out over the bottom edge.
+Press the right button for the status menu, which shows how happy, energetic and full the pet is, plus the room temperature.
 
-Order to do it in
+Shake the star to make the pet happier. If it was sleeping, it wakes up.
 
-The parts that are on the very bottom of the star (so that the star can lay flat on a desk) should be soldered on first: resistor (a little part with two legs of wire), temperature sensor, brain, motion sensor, and screen. Then the buttons, and finally the keycaps, which just snap onto the buttons and don't need to be soldered.
+The pet remembers its status between sessions. Unplug it and plug it back in and it'll still feel the way it did.
 
-The motion sensor has pins that stick out a long way underneath, so trim those to a reasonable length, or the star won't be able to lay flat on a desk.
+## Building it
 
-Images: 
+Everything goes on the front of the star and is held on with solder.
+
+### How a part is attached
+
+All parts have little metal legs, and the board has a hole for each leg with a ring of metal around it. Push the legs through the holes from the front so the part sits flat on the front of the star (not on its side), then flip the board over.
+
+On the back, touch the soldering iron to where the leg meets the metal ring and add a little solder. Solder is a metal wire that melts easily. It pools around the leg and ring and hardens in a couple of seconds. That does two things:
+
+1. It physically holds the part in place.
+2. It makes an electrical connection, so electricity can flow from the part to the lines on the board.
+
+After soldering a leg, snip off the extra length sticking out the back.
+
+### The three mini boards
+
+The brain, the screen and the motion sensor each come on their own mini board, so they need one extra step. They usually come with a strip of metal header pins. Solder the pins onto the mini board first, which gives it legs, then solder those legs into the star like normal.
+
+### Where everything goes
+
+- Top: temperature sensor, with the little resistor next to it
+- Middle: the screen
+- Left and right points: one button each
+- Bottom left: the motion sensor
+- Bottom right: the brain, with its USB-C port sticking out over the bottom edge
+
+### Order to do it in
+
+Solder the parts that sit lowest on the star first, so it can still lie flat on a desk while you work: resistor (the little part with two wire legs), temperature sensor, brain, motion sensor, and screen. Then the buttons. The keycaps go on last and just snap onto the buttons, no solder needed.
+
+The motion sensor's pins stick out a long way underneath. Trim them short or the star won't lie flat.
+
+## Parts list
+
+| Part | Store | Link | Need | Buy | Price |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| XIAO ESP32-C3 | Seeed Studio | XIAO ESP32C3 | 1 | 1 | $4.99 |
+| 0.96" OLED, GND-VCC-SCL-SDA | 52Pi | 52Pi 0.96" OLED | 1 | 1 set | $5.09 |
+| MPU6050 (GY-521), comes with its 8 pins | ProtoSupplies | MPU-6050 GY-521 | 1 | 1 | $3.95 |
+| 10k resistor | ProtoSupplies | 10k resistor, 25-pack | 1 | 1 pack of 25 | $0.59 |
+| Header pins, 1×40 strips | ProtoSupplies | Male header 1x40, 5-pack | 18 (14 for the XIAO + 4 for the OLED) | 1 pack of 5 strips | $0.95 |
+| DHT11, bare 4-pin | LCSC | Aosong DHT11 (C117051) | 1 | 1 | $1.46 |
+| MX-compatible switches | Adafruit | Kailh Clicky White, 10-pack | 2 | 1 pack of 10 | $6.95 |
+| Keycaps | Adafruit | Dark Gray DSA keycaps, 10-pack | 2 | 1 pack of 10 | $5.95 |
+| PCB | JLCPCB | jlcpcb.com (upload production/RishiStarbie_gerbers.zip) | 1 | 5 (minimum order) | $2.00 + ~$1.20 tariff |
+| **Parts and board subtotal** | | | | | **$33.13** |
+
+The same list with reference designators and footprints is in [`production/BOM.csv`](production/BOM.csv).
+
+## Build journal images
+
+<details>
+<summary>Screenshots from the schematic, layout and DRC steps (click to expand)</summary>
+
 <img width="1441" height="1235" alt="s3-silk-back" src="https://github.com/user-attachments/assets/c36d1dec-c384-4269-9a88-e530127dec6d" />
 <img width="1441" height="1274" alt="s3-silk" src="https://github.com/user-attachments/assets/5658be0e-ec0b-49b4-a1b3-a704ba7c0cfe" />
 <img width="939" height="1055" alt="s3-jlcpcb" src="https://github.com/user-attachments/assets/6ccf4df6-39fb-475b-9ac8-e5d13acaddc2" />
@@ -84,15 +145,4 @@ Images:
 <img width="1003" height="604" alt="Journal2_2" src="https://github.com/user-attachments/assets/ab858e63-dee9-4ba1-9616-84348ae8b5f3" />
 <img width="1441" height="1229" alt="Journal2_1" src="https://github.com/user-attachments/assets/961d88a8-0dd2-45ef-a2e0-493b3f8f5cad" />
 
-| Part | Store | Link | Need | Buy | Price |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| XIAO ESP32-C3 | Seeed Studio | XIAO ESP32C3 | 1 | 1 | $4.99 |
-| 0.96" OLED, GND-VCC-SCL-SDA | 52Pi | 52Pi 0.96" OLED | 1 | 1 set | $5.09 |
-| MPU6050 (GY-521), comes with its 8 pins | ProtoSupplies | MPU-6050 GY-521 | 1 | 1 | $3.95 |
-| 10k resistor | ProtoSupplies | 10k resistor, 25-pack | 1 | 1 pack of 25 | $0.59 |
-| Header pins, 1×40 strips | ProtoSupplies | Male header 1x40, 5-pack | 18 (14 for the XIAO + 4 for the OLED) | 1 pack of 5 strips | $0.95 |
-| DHT11, bare 4-pin | LCSC | Aosong DHT11 (C117051) | 1 | 1 | $1.46 |
-| MX-compatible switches | Adafruit | Kailh Clicky White, 10-pack | 2 | 1 pack of 10 | $6.95 |
-| Keycaps | Adafruit | Dark Gray DSA keycaps, 10-pack | 2 | 1 pack of 10 | $5.95 |
-| PCB | JLCPCB | jlcpcb.com (upload RishiStarbie_gerbers.zip) | 1 | 5 (minimum order) | $2.00 + ~$1.20 tariff |
-| **Parts and board subtotal** | | | | | **$33.13** |
+</details>
