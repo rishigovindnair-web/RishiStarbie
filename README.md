@@ -6,13 +6,14 @@ My Starbie for Week 1 of Hack Club Half-Life. A Starbie is a desk pet built on a
 
 ```
 RishiStarbie/
+├── firmware/RishiStarbie/            Arduino sketch for the XIAO ESP32-C3
 ├── pcb/                              KiCad project (open this)
 │   ├── RishiStarbie.kicad_pro
 │   ├── RishiStarbie.kicad_sch        schematic
 │   ├── RishiStarbie.kicad_pcb        board layout
 │   ├── fp-lib-table / sym-lib-table  point KiCad at libs/
 │   └── libs/
-│       ├── Imported Parts.pretty/    footprints: XIAO, OLED, MPU6050
+│       ├── Imported Parts.pretty/    footprints: XIAO ESP32-C3, OLED, MPU6050
 │       ├── Seeed_Studio_XIAO_Series.kicad_sym
 │       └── 3D Models/                see the README in there
 └── production/
@@ -29,6 +30,17 @@ RishiStarbie/
 The custom footprints and the XIAO symbol live in `pcb/libs/`, and the project's library tables point at them with `${KIPRJMOD}`, so they load on any computer without extra setup. Everything else (switches, DHT11, resistor, connectors) comes from KiCad's built-in libraries.
 
 If you change the board, re-export gerbers (File → Fabrication Outputs → Gerbers + Drill Files), zip them, and replace `production/RishiStarbie_gerbers.zip`.
+
+## Firmware
+
+The code is in [`firmware/RishiStarbie/RishiStarbie.ino`](firmware/RishiStarbie/RishiStarbie.ino).
+
+1. Install the [Arduino IDE](https://www.arduino.cc/en/software).
+2. Add ESP32 support: File → Preferences → "Additional boards manager URLs", paste `https://espressif.github.io/arduino-esp32/package_esp32_index.json`, then install **esp32 by Espressif** from Tools → Board → Boards Manager.
+3. Install these libraries from Sketch → Include Library → Manage Libraries (click "Install All" when it asks about dependencies): **Adafruit GFX Library**, **Adafruit SSD1306**, **Adafruit MPU6050**, **DHT sensor library**.
+4. Open the `.ino`, pick Tools → Board → esp32 → **XIAO_ESP32C3**, plug in the Starbie, choose its port, and click Upload.
+
+Pin numbers, starting stats, menu actions and the pet sprite are all in the `BEGINNER SETTINGS` section at the top of the file. The pins there match the PCB: SDA on D4, SCL on D5, DHT11 on D1, left button on D2, right button on D3.
 
 ## What's on the board
 
@@ -96,15 +108,15 @@ The motion sensor's pins stick out a long way underneath. Trim them short or the
 
 | Part | Store | Link | Need | Buy | Price |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| XIAO ESP32-C3 | Seeed Studio | XIAO ESP32C3 | 1 | 1 | $4.99 |
-| 0.96" OLED, GND-VCC-SCL-SDA | 52Pi | 52Pi 0.96" OLED | 1 | 1 set | $5.09 |
-| MPU6050 (GY-521), comes with its 8 pins | ProtoSupplies | MPU-6050 GY-521 | 1 | 1 | $3.95 |
-| 10k resistor | ProtoSupplies | 10k resistor, 25-pack | 1 | 1 pack of 25 | $0.59 |
-| Header pins, 1×40 strips | ProtoSupplies | Male header 1x40, 5-pack | 18 (14 for the XIAO + 4 for the OLED) | 1 pack of 5 strips | $0.95 |
-| DHT11, bare 4-pin | LCSC | Aosong DHT11 (C117051) | 1 | 1 | $1.46 |
-| MX-compatible switches | Adafruit | Kailh Clicky White, 10-pack | 2 | 1 pack of 10 | $6.95 |
-| Keycaps | Adafruit | Dark Gray DSA keycaps, 10-pack | 2 | 1 pack of 10 | $5.95 |
-| PCB | JLCPCB | jlcpcb.com (upload production/RishiStarbie_gerbers.zip) | 1 | 5 (minimum order) | $2.00 + ~$1.20 tariff |
+| XIAO ESP32-C3 | Seeed Studio | [XIAO ESP32C3](https://www.seeedstudio.com/Seeed-XIAO-ESP32C3-p-5431.html) | 1 | 1 | $4.99 |
+| 0.96" OLED, GND-VCC-SCL-SDA | 52Pi | [52Pi 0.96" OLED](https://52pi.com/products/52pi-oled-display-module-i2c-iic-128x64-pixel-0-96-inch-display-module-yellow-blue-two-color-display-compatible-with-raspberry-pi-arduino-51-series-mcu-stm32-r3-and-mega) | 1 | 1 set | $5.09 |
+| MPU6050 (GY-521), comes with its 8 pins | ProtoSupplies | [MPU-6050 GY-521](https://protosupplies.com/product/mpu-6050-gy-521-3-axis-accel-gryo-sensor-module/) | 1 | 1 | $3.95 |
+| 10k resistor | ProtoSupplies | [10k resistor, 25-pack](https://protosupplies.com/product/resistor-10k-5/) | 1 | 1 pack of 25 | $0.59 |
+| Header pins, 1×40 strips | ProtoSupplies | [Male header 1x40, 5-pack](https://protosupplies.com/product/header-male-1x40/) | 18 (14 for the XIAO + 4 for the OLED) | 1 pack of 5 strips | $0.95 |
+| DHT11, bare 4-pin | LCSC | [Aosong DHT11 (C117051)](https://www.lcsc.com/product-detail/C117051.html) | 1 | 1 | $1.46 |
+| MX-compatible switches | Adafruit | [Kailh Clicky White, 10-pack](https://www.adafruit.com/product/4955) | 2 | 1 pack of 10 | $6.95 |
+| Keycaps | Adafruit | [Dark Gray DSA keycaps, 10-pack](https://www.adafruit.com/product/5012) | 2 | 1 pack of 10 | $5.95 |
+| PCB | JLCPCB | [JLCPCB instant quote](https://cart.jlcpcb.com/quote) (upload `production/RishiStarbie_gerbers.zip`) | 1 | 5 (minimum order) | $2.00 + ~$1.20 tariff |
 | **Parts and board subtotal** | | | | | **$33.13** |
 
 The same list with reference designators and footprints is in [`production/BOM.csv`](production/BOM.csv).
