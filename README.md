@@ -112,7 +112,7 @@ The motion sensor's pins stick out a long way underneath. Trim them short or the
 | Header pins, 7-pin XIAO headers | Seeed Studio | [7-pin male header, 5 pcs](https://www.seeedstudio.com/XIAO-Series-7-Pin-Male-Header-5-pcs-p-5460.html) | 18 (14 for the XIAO + 4 for the OLED) | 1 pack of 5 | $0.20 |
 | 0.96" OLED, GND-VCC-SCL-SDA | 52Pi | [52Pi 0.96" OLED](https://52pi.com/products/52pi-oled-display-module-i2c-iic-128x64-pixel-0-96-inch-display-module-yellow-blue-two-color-display-compatible-with-raspberry-pi-arduino-51-series-mcu-stm32-r3-and-mega) | 1 | 1 set | $5.09 |
 | MPU6050 (GY-521), comes with its 8 pins | Amazon | [GY-521 MPU-6050 module](https://www.amazon.com/dp/B0CP78F4TQ) | 1 | 1 | $4.95 |
-| DHT11, bare 4-pin | Amazon | [4-pin DHT11 sensor](https://www.amazon.com/dp/B07PKBP6VD) | 1 | 1 | $6.46 |
+| DHT11, bare 4-pin | Amazon | [4-pin DHT11 sensor](https://www.amazon.com/dp/B0HFRZSYCQ) | 1 | 1 | $6.46 |
 | 10k resistor | Adafruit | [10k resistor, 25-pack](https://www.adafruit.com/product/2784) | 1 | 1 pack of 25 | $0.75 |
 | MX-compatible switches | Adafruit | [Kailh Clicky Blue, single](https://www.adafruit.com/product/5123) | 2 | 2 | $1.90 |
 | Keycaps | Adafruit | [Translucent keycaps for MX, 10-pack](https://www.adafruit.com/product/4956) | 2 | 1 pack of 10 | $4.95 |
