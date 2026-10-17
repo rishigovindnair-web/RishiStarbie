@@ -109,15 +109,17 @@ The motion sensor's pins stick out a long way underneath. Trim them short or the
 | Part | Store | Link | Need | Buy | Price |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | XIAO ESP32-C3 | Seeed Studio | [XIAO ESP32C3](https://www.seeedstudio.com/Seeed-XIAO-ESP32C3-p-5431.html) | 1 | 1 | $4.99 |
+| Header pins, 7-pin XIAO headers | Seeed Studio | [7-pin male header, 5 pcs](https://www.seeedstudio.com/XIAO-Series-7-Pin-Male-Header-5-pcs-p-5460.html) | 18 (14 for the XIAO + 4 for the OLED) | 1 pack of 5 | $0.20 |
 | 0.96" OLED, GND-VCC-SCL-SDA | 52Pi | [52Pi 0.96" OLED](https://52pi.com/products/52pi-oled-display-module-i2c-iic-128x64-pixel-0-96-inch-display-module-yellow-blue-two-color-display-compatible-with-raspberry-pi-arduino-51-series-mcu-stm32-r3-and-mega) | 1 | 1 set | $5.09 |
-| MPU6050 (GY-521), comes with its 8 pins | ProtoSupplies | [MPU-6050 GY-521](https://protosupplies.com/product/mpu-6050-gy-521-3-axis-accel-gryo-sensor-module/) | 1 | 1 | $3.95 |
-| 10k resistor | ProtoSupplies | [10k resistor, 25-pack](https://protosupplies.com/product/resistor-10k-5/) | 1 | 1 pack of 25 | $0.59 |
-| Header pins, 1×40 strips | ProtoSupplies | [Male header 1x40, 5-pack](https://protosupplies.com/product/header-male-1x40/) | 18 (14 for the XIAO + 4 for the OLED) | 1 pack of 5 strips | $0.95 |
-| DHT11, bare 4-pin | LCSC | [Aosong DHT11 (C117051)](https://www.lcsc.com/product-detail/C117051.html) | 1 | 1 | $1.46 |
-| MX-compatible switches | Adafruit | [Kailh Clicky White, 10-pack](https://www.adafruit.com/product/4955) | 2 | 1 pack of 10 | $6.95 |
-| Keycaps | Adafruit | [Dark Gray DSA keycaps, 10-pack](https://www.adafruit.com/product/5012) | 2 | 1 pack of 10 | $5.95 |
-| PCB | JLCPCB | [JLCPCB instant quote](https://cart.jlcpcb.com/quote) (upload `production/RishiStarbie_gerbers.zip`) | 1 | 5 (minimum order) | $2.00 + ~$1.20 tariff |
-| **Parts and board subtotal** | | | | | **$33.13** |
+| MPU6050 (GY-521), comes with its 8 pins | Amazon | [GY-521 MPU-6050 module](https://www.amazon.com/dp/B0CP78F4TQ) | 1 | 1 | $4.95 |
+| DHT11, bare 4-pin | Amazon | [4-pin DHT11 sensor](https://www.amazon.com/dp/B07PKBP6VD) | 1 | 1 | $6.46 |
+| 10k resistor | Adafruit | [10k resistor, 25-pack](https://www.adafruit.com/product/2784) | 1 | 1 pack of 25 | $0.75 |
+| MX-compatible switches | Adafruit | [Kailh Clicky Blue, single](https://www.adafruit.com/product/5123) | 2 | 2 | $1.90 |
+| Keycaps | Adafruit | [Translucent keycaps for MX, 10-pack](https://www.adafruit.com/product/4956) | 2 | 1 pack of 10 | $4.95 |
+| PCB | JLCPCB | [JLCPCB instant quote](https://cart.jlcpcb.com/quote) (upload `production/RishiStarbie_gerbers.zip`) | 1 | 5 (minimum order) | $0.01 |
+| **Parts and board subtotal** | | | | | **$29.30** |
+| Tax & shipping (Seeed $6.30, 52Pi $6.00, Amazon $4.41, Adafruit $7.46) | | | | | $24.17 |
+| **Total** | | | | | **$53.47** |
 
 The same list with reference designators and footprints is in [`production/BOM.csv`](production/BOM.csv).
 
