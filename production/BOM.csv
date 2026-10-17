@@ -3,7 +3,7 @@ U1,Seeed XIAO ESP32-C3,1,1,4.99,4.99,Seeed Studio,SKU 113991054,Imported Parts:X
 -,7-pin male header for XIAO (5 pcs),18 pins,1 pack,0.20,0.20,Seeed Studio,SKU 102010490,-,2 strips for the XIAO; snap 4 pins off a spare for the OLED if it has none
 J1,"0.96in SSD1306 OLED 128x64 I2C (GND-VDD-SCL-SDA pin order), yellow/blue",1,1 set,5.09,5.09,52Pi,52Pi OLED Display Module I2C 128X64 0.96 Inch Yellow Blue,Imported Parts:Display_128x64_096_I2C,Check your module's pin order matches GND VDD SCL SDA
 J2,GY-521 MPU6050 module,1,1,4.95,4.95,Amazon,https://www.amazon.com/dp/B0CP78F4TQ,Imported Parts:MPU6050_Module,Powered from 3.3V; 8-pin header included
-U2,DHT11 bare 4-pin sensor,1,1,6.46,6.46,Amazon,https://www.amazon.com/dp/B07PKBP6VD,Sensor:Aosong_DHT11_5.5x12.0_P2.54mm,Not the 3-pin breakout board
+U2,DHT11 bare 4-pin sensor,1,1,6.46,6.46,Amazon,https://www.amazon.com/dp/B0HFRZSYCQ,Sensor:Aosong_DHT11_5.5x12.0_P2.54mm,Not the 3-pin breakout board
 R1,10k resistor (DHT11 data pull-up),1,1 pack of 25,0.75,0.75,Adafruit,PID 2784,Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal,
 SW1 SW2,"Kailh Mechanical Key Switch, Clicky Blue (MX-compatible)",2,2,0.95,1.90,Adafruit,PID 5123,Button_Switch_Keyboard:SW_Cherry_MX_1.00u_PCB,
 -,Translucent keycaps for MX switches (10 pack),2,1 pack of 10,4.95,4.95,Adafruit,PID 4956,-,
